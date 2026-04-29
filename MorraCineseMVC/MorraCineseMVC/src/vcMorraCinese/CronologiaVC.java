@@ -1,4 +1,7 @@
 package vcMorraCinese;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 /**
  *
  * @author Vittorio Privitera
@@ -6,11 +9,10 @@ package vcMorraCinese;
 public class CronologiaVC extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CronologiaVC.class.getName());
-    /**
-     * Creates new form cronologiaVC
-     */
+    private final String percorso="cronologia.txt";
     public CronologiaVC() {
         initComponents();
+        setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -51,8 +53,26 @@ public class CronologiaVC extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+    public void leggi()
+    {
+        try
+        {
+            File f=new File(this.percorso);
+            FileReader fr=new FileReader(f);
+            BufferedReader in=new BufferedReader(fr);
+            String vet[]=new String[3];
+            String line;
+            crono_txta.append("                                          CRONOLOGIA PARTITE"+"\n");
+            while((line=in.readLine())!=null)
+            {
+                vet=line.split("\\?");
+                crono_txta.append("Nome: "+vet[0]+"\n"+"Punti: "+vet[1]+"\n"+"Data: "+vet[2]+"\n\n");
+            }
+        }catch(Exception e)
+        {
+            System.out.println("errore");
+        }
+    }
     /**
      * @param args the command line arguments
      */
