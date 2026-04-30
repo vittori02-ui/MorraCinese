@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vcMorraCinese;
 
 import javax.swing.JFrame;
@@ -18,6 +14,8 @@ public class MenuGameVC extends javax.swing.JFrame {
      */
     public MenuGameVC() {
         initComponents();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
     /**
@@ -73,10 +71,25 @@ public class MenuGameVC extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
 
         gioca_btn.setText("GIOCA");
+        gioca_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gioca_btnActionPerformed(evt);
+            }
+        });
 
         cronologia_btn.setText("CRONOLOGIA");
+        cronologia_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cronologia_btnActionPerformed(evt);
+            }
+        });
 
         esci_btn.setText("ESCI");
+        esci_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                esci_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -129,6 +142,25 @@ public class MenuGameVC extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void gioca_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gioca_btnActionPerformed
+        GameCineseVC gc=new GameCineseVC();
+        gc.setVisible(true);
+        gc.setLocationRelativeTo(this);
+    }//GEN-LAST:event_gioca_btnActionPerformed
+
+    private void cronologia_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cronologia_btnActionPerformed
+        CronologiaVC cv=new CronologiaVC();
+        cv.setVisible(true);
+        cv.setLocationRelativeTo(this);
+        cv.leggi();
+    }//GEN-LAST:event_cronologia_btnActionPerformed
+
+    private void esci_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esci_btnActionPerformed
+        //JOptionPane.showMessageDialog(null,"Arriverci");
+        System.exit(0);
+    }//GEN-LAST:event_esci_btnActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */

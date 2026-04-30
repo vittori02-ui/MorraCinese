@@ -1,5 +1,6 @@
 package mainMorraCinese;
 import vcMorraCinese.GameCineseVC;
+import vcMorraCinese.MenuGameVC;
 /**
  *
  * @author Vittorio Privitera
@@ -9,8 +10,11 @@ public class MainClass {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        GameCineseVC gc=new GameCineseVC();
+        /*GameCineseVC gc=new GameCineseVC();
         gc.setVisible(true);
-        gc.setLocationRelativeTo(null);
+        gc.setLocationRelativeTo(null);*/
+        MenuGameVC mg=new MenuGameVC();
+        mg.setVisible(true);
+        mg.setLocationRelativeTo(null);
     } 
 }

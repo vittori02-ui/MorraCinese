@@ -1,4 +1,9 @@
 package vcMorraCinese;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import modelMorraCinese.Model;
@@ -9,6 +14,8 @@ import modelMorraCinese.Model;
 public class GameCineseVC extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameCineseVC.class.getName());
+    private final String percorso="cronologia.txt";
+    private final DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private Model model;
     public GameCineseVC() {
         initComponents();
@@ -335,10 +342,12 @@ public class GameCineseVC extends javax.swing.JFrame {
                 break;
             case -8:
                 JOptionPane.showMessageDialog(null,"Ha vinto "+this.model.getNome());
+                scrivi();
                 terminaPartita();
                 break;
             case -7:
                 JOptionPane.showMessageDialog(null,"Ha vinto il pc");
+                scrivi();
                 terminaPartita();
                 break;
             default:
@@ -348,6 +357,37 @@ public class GameCineseVC extends javax.swing.JFrame {
                 puntiPc_lbl.setText(""+this.model.getPuntiPc());
                 //System.out.println(this.model.getPuntiPc());
         } 
+    }
+    
+     private void scrivi()
+    {
+        String nome;
+        int punti;
+        if(this.model.getPuntiUtente()==this.model.getPuntiMax()) 
+        {
+            nome=this.model.getNome();
+            punti=this.model.getPuntiUtente();
+        }
+        else 
+        {
+            nome="PC";
+            punti=this.model.getPuntiPc();
+        }
+        File f=new File(this.percorso);
+        //InputStream f=getClass().getResourceAsStream(this.percorso);
+        try
+        {
+            //FileWriter f=new FileWriter(percorso);
+            FileWriter fw=new FileWriter(f,true);
+            BufferedWriter bw=new BufferedWriter(fw);
+            bw.write(""+nome+"?"+punti+"?"+LocalDateTime.now().format(this.formatoData));
+            bw.newLine();   
+            bw.close();   
+            fw.close(); 
+        }catch(Exception e)
+        {
+            System.out.println("errore");
+        }     
     }
     private void terminaPartita()
     {

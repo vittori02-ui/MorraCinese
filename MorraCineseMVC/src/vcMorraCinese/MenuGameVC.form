@@ -144,16 +144,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="GIOCA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gioca_btnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cronologia_btn">
           <Properties>
             <Property name="text" type="java.lang.String" value="CRONOLOGIA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cronologia_btnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="esci_btn">
           <Properties>
             <Property name="text" type="java.lang.String" value="ESCI"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="esci_btnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
