@@ -8,7 +8,7 @@ The inspiration for this game came from getting involved myself and recreating a
 
 ### Download instructions:
 The download instructions are as follows: in the GitHub releases folder there are two files: a .jar and a .txt file. The .jar is the executable and the .txt is the history, which is a game feature. You can also choose not to include it; the game will create it in the same folder as the executable when the game ends. Alternatively, you can download it from the itch page using this link: [clicca qui](https://vittori02-ui.itch.io/paper-scissor-and-rock)  and following the same information above
-
+**N.B obviously the app is for Windows**
 
 
 ### Some images of the game
